@@ -1630,8 +1630,8 @@ function swatch(input, options = {}) {
   const {
     format,
     lightnessFactor = 1.5,
-    maxLightness = 0.97,
-    minLightness = 0.2,
+    maxLightness = 1,
+    minLightness = 0,
     scale = "dynamic",
     variant = "base"
   } = options;
