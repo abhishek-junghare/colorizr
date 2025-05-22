@@ -127,7 +127,7 @@ export default function swatch(input: string, options: SwatchOptions = {}): Swat
 
   const colorFormat = isHex(input) || isNamedColor(input) ? 'hex' : extractColorParts(input).model;
 
-  const steps = 11;
+  const steps = 21;
   let palette: Record<number, number> = {};
 
   if (scale === 'dynamic') {
@@ -135,29 +135,33 @@ export default function swatch(input: string, options: SwatchOptions = {}): Swat
       // Calculate lightness for this step
       const lightness =
         maxLightness - (maxLightness - minLightness) * (index / (steps - 1)) ** lightnessFactor;
-      let tone = index * 100;
-
-      if (index === 0) {
-        tone = 50;
-      } else if (index === 10) {
-        tone = 950;
-      }
+      let tone = index * 50;
 
       palette[tone] = lightness;
     }
   } else {
     palette = {
-      50: 0.97,
-      100: 0.92,
-      200: 0.85,
-      300: 0.78,
-      400: 0.69,
-      500: 0.57,
-      600: 0.46,
-      700: 0.35,
-      800: 0.24,
-      900: 0.18,
-      950: 0.1,
+      0: 1,
+      50: 0.95,
+      100: 0.9,
+      150: 0.85,
+      200: 0.8,
+      250: 0.75,
+      300: 0.7,
+      350: 0.65,
+      400: 0.6,
+      450: 0.55,
+      500: 0.5,
+      550: 0.45,
+      600: 0.4,
+      650: 0.35,
+      700: 0.3,
+      750: 0.25,
+      800: 0.2,
+      850: 0.15,
+      900: 0.1,
+      950: 0.05,
+      1000: 0,
     };
   }
 
